@@ -25,10 +25,8 @@ class Clock extends React.Component {
   }
 
   render () {
-    let color = this.state.active ? {color: 'grey'} : {color: 'black'}; //三項演算子
-
     return (
-      <h1 style={color}>{this.state.time.toLocaleTimeString()}.</h1>
+      <h1 style={this.state.active ? {color: 'grey'} : {color: 'black'}}>{this.state.time.toLocaleTimeString()}.</h1>
     )
   }
 }
