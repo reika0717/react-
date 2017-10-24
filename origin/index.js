@@ -2,16 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-//JSXとは何かを学習
-
 ReactDOM.render(
-  <h1>{(new Date()).toLocaleTimeString()}</h1>,　  //JSXでの表記
+  <h1>Hello React.</h1>,
   document.getElementById('root')
-)
-
-ReactDOM.render(
-  <h1>{(new Date()).toLocaleTimeString()}</h1>,　  //JSXでの表記
-  document.getElementById('root2')
 )
 
 /** Work
