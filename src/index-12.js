@@ -19,23 +19,24 @@ class Root extends React.Component {
     }
   }
 
+  handleClick (arg) {
+    this.setState(() => ({
+      message: arg
+    }))
+  }
+
   render () {
     return (
       <div>
         <h1>{this.state.message}</h1>
-        <MyInput onChange={(e) => {
-            this.setState({message: e.target.value})
-          }} />
+        <MyInput onChange={(e) => this.handleClick(e.target.value)} />
       </div>
     )
   }
 }
 
 const MyInput = (props) => (
-  <input
-    value={props.message}
-    onChange={props.onChange}
-  />
+  <input onChange={props.onChange} />
 )
 
 ReactDOM.render(
