@@ -2,6 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
+/** Purpose
+子コンポーネントで発生したイベントを親コンポーネントに伝える方法を確認します。
+この仕組みを使うと、以下の流れでイベントハンドラ経由で「親 <- 子」へとデータを受け渡すことができます。
+
+子でイベントが発生
+  => 親にイベントを通知
+  => 親は子からイベントハンドラ経由で渡された値を元に、自分や子を更新
+*/
+
 class Root extends React.Component {
   constructor (props) {
     super(props)
@@ -20,14 +29,14 @@ class Root extends React.Component {
     return (
       <div>
         <h1>{this.state.message}</h1>
-        <MyButton onClick={(e) => this.handleClick('Received child component event!')} />
+        <MyInput onChange={(e) => this.handleClick(e.target.value)} />
       </div>
     )
   }
 }
 
-const MyButton = (props) => (
-  <button onClick={props.onClick}>Emit From Child Component!</button>
+const MyInput = (props) => (
+  <input onChange={props.onChange} />
 )
 
 ReactDOM.render(
